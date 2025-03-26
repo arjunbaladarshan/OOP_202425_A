@@ -13,6 +13,7 @@
 	 of n students.
 
 */
+import java.util.Scanner;
 class Student{
 	int id_no;	
 	int no_of_subjects_registered	;
@@ -33,8 +34,18 @@ class Student{
 }
 public class FinalExample2{
 	public static void main(String[] args) {
-		int a = 5;  
-		int b = 7;  
-		System.out.println((a > b) ? "a is greater than b" : "a is less than or equal to b"); 
+		Scanner sc = new Scanner(System.in);
+		try{
+			int a = sc.nextInt();
+			int b = sc.nextInt();
+			int c = a / b;
+			System.out.println(c);
+		}catch(ArithmeticException e){
+			e.printStackTrace();
+		}
+		finally{
+			System.out.println("This is called any how");
+		}
+		System.out.println("this is end");
 	}
 }
