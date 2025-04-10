@@ -6,14 +6,19 @@ public class DemoFileCopy{
             FileInputStream fis = new FileInputStream("NMG.jpg");
             FileOutputStream fos = new FileOutputStream("NMG_Updated.jpg");
             int temp; 
-            String msg = "secret";
+            String msg = "secret msg";
+            byte[] data = msg.getBytes();
             int counter = 0;
             while((temp = fis.read())!=-1){
                 counter++;
-                if(counter==1000){
-                    fos.write(msg.getBytes());
+                if(counter==1500){
+                    fos.write(data);
+                    fis.skip(data.length);
                 }
-                fos.write(temp);
+                else{
+                    fos.write(temp);
+                }
+                
             }            
             
 
